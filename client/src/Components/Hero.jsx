@@ -1,37 +1,36 @@
+
 import React from "react";
-import { assets } from "../assets/assets";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Hero = () => {
-  const navigate = useNavigate();
-  return (
-    <div className=" ">
-      <div className="flex flex-col items-center justify-center min-h-[720px] gap-20">
-        <img src={assets.hero_image} alt="hero_image" className="w-full h-[700px]" />
+const Hero = () => (
+  <section className="min-h-screen text-center py-10 md:py-20 bg-gray-900 text-white flex flex-col items-center justify-center">
+    <h2 className="text-4xl font-bold mb-4">Guess the Movie, Have Fun!</h2>
+    <p className="mt-2 text-lg mb-6 max-w-lg">
+      Challenge your friends in an exciting Bollywood guessing game.
+    </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-evenly gap-x-20">
-          <button className="border border-gray-500 outline outline-red-600 rounded-full p-4 font-semibold hover:text-orange-600 bg-slate-500">
-            Login
-          </button>
-          <button className="border border-gray-500 outline outline-red-600 rounded-full p-4 font-semibold hover:text-orange-600 bg-slate-500">
-            SignUp
-          </button>
-          <button className="border border-gray-500 outline outline-red-600 rounded-full p-4 font-semibold hover:text-orange-600 bg-slate-500">
-            Play as a guest
-          </button>
-        </div>
-
-        <div>
-          <button
-            onClick={() => navigate("/settings")}
-            className="border border-gray-500 outline outline-red-600 rounded-full p-4 font-semibold hover:text-orange-600 bg-slate-500"
-          >
-            Settings
-          </button>
-        </div>
-      </div>
+    {/* Buttons Section */}
+    <div className="flex flex-col md:flex-row gap-4">
+      <Link
+        to="/guestplay"
+        className="bg-green-500 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-600"
+      >
+        Play as Guest
+      </Link>
+      <Link
+        to="/login"
+        className="bg-blue-500 px-6 py-3 rounded-full text-white font-semibold hover:bg-blue-600"
+      >
+        Login
+      </Link>
+      <Link
+        to="/signup"
+        className="bg-purple-500 px-6 py-3 rounded-full text-white font-semibold hover:bg-purple-600"
+      >
+        Sign Up
+      </Link>
     </div>
-  );
-};
+  </section>
+);
 
 export default Hero;
